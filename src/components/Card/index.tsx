@@ -1,10 +1,22 @@
-import React from 'react'
+import { CardContainer } from "./styles"
 
-const Card = () => {
+interface CardProps {
+  width?: string
+  children?: React.ReactNode
+  height?: string
+  noShadow?: boolean 
+} 
+
+const Card = ({
+  children,
+  width='100%',
+  height="auto",
+  noShadow=false,
+}:CardProps) => {
   return (
-    <div>
-      
-    </div>
+    <CardContainer width={width} height={height} noShadow={noShadow}>
+      {children}
+    </CardContainer>
   )
 }
 
