@@ -1,11 +1,13 @@
-import React from 'react'
+import { Wrapper, Background, InputContainer, ButtonContainer } from "./styles"
+import background from '../../assets/images/background-login.jpg'
 
-const Signin = () => {
+const SignIn = () => {
   return (
-    <div>
+    <Wrapper>
+      <Background image={background}/>
       Signin
-    </div>
+    </Wrapper>
   )
 }
 
-export default Signin
+export default SignIn
