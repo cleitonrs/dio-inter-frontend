@@ -1,7 +1,8 @@
 import { ButtonHTMLAttributes } from "react"
-import { ButtonContainer } from "../../pages/Signin/styles"
+import { ButtonContainer } from "./styles"
 
-const Button = (props: ButtonHTMLAttributes<HTMLInputElement>) => {
+
+const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <ButtonContainer {...props}>
       {props.children}
