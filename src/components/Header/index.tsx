@@ -10,7 +10,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     const handleLogoff = () => {
-        navigate('/signin')
+        navigate('/')
     }
     return (
         <HeaderContainer>
@@ -21,7 +21,7 @@ const Header = () => {
                   <div>
                       <p>Olá, <span className="primary-color font-bold">Pablo</span></p>
                       <strong>22001123-1</strong><br/>
-                      <a href="#" onClick={handleLogoff}>Sair</a>
+                      <a href="/" onClick={handleLogoff}>Sair</a>
                   </div>
                 </UserInfo>
             </HeaderWrapper>
