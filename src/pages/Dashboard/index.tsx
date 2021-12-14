@@ -1,10 +1,14 @@
-import React from 'react'
+import Header from '../../components/Header'
+import { BodyContainer, DashboardBackground } from './styles'
 
 const Dashboard = () => {
   return (
-    <div>
-      Dashboard
-    </div>
+    <DashboardBackground>
+      <Header />
+      <BodyContainer>
+        
+      </BodyContainer>
+    </DashboardBackground>
   )
 }
 
