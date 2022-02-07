@@ -21,7 +21,7 @@ export const AuthContext = createContext<ContextData>({} as ContextData)
 
 export const AuthProvider: React.FC = ({ children }) => {
 
-  const [user, setUser] = useState<UserDto>({} as ContextData)
+  const [user, setUser] = useState<UserDto>({} as UserDto)
 
   const userSignIn = async (userData: SignInData) => {
     const {data} = await signIn(userData)
