@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import { createContext, useEffect, useState, useCallback } from "react";
 import { signIn, SignInData, signUp, SignUpData, me } from "../services/resources/user";
 
@@ -10,10 +11,12 @@ interface UserDto {
   wallet: number
   email: string
 }
+
 interface ContextData {
   user: UserDto
-  userSignIn: (userData: SignInData) => void
-  userSignUp: (userData: SignUpData) => void
+  userSignIn: (userData: SignInData) => Promise<UserDto>
+  userSignUp: (userData: SignUpData) => Promise<UserDto>
+  me: () => Promise<AxiosResponse<UserDto, any>>
 
 }
 
@@ -34,7 +37,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       localStorage.setItem('@Inter:Token', data.accessToken)
     }
 
-    await getCurrentUser()
+    return await getCurrentUser()
+
   }
 
   const getCurrentUser = async () => {
@@ -46,11 +50,11 @@ export const AuthProvider: React.FC = ({ children }) => {
   const userSignUp = async (userData: SignUpData) => {
     const {data} = await signUp(userData)
     localStorage.setItem('@Inter:Token', data.accessToken)
-    await getCurrentUser()
+    return await getCurrentUser()
   }
 
   return (
-    <AuthContext.Provider value={{user, userSignIn, userSignUp}}>
+    <AuthContext.Provider value={{user, userSignIn, userSignUp, me}}>
       { children }
     </AuthContext.Provider>
   )
